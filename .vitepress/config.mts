@@ -4,6 +4,9 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Wanaku MCP Router Documentation",
   description: "Documentation for the Wanaku MCP Router",
+  ignoreDeadLinks: true,
+  base: '/docs',
+  outDir: 'docs',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -26,6 +29,6 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/wanaku-ai/' }
-    ]
+    ],
   }
 })
