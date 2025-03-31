@@ -78,5 +78,5 @@ jobs:
           username: ${{ secrets.WEBSITE_USERNAME }}
           password: ${{ secrets.WANAKU_PASSWORD }}
           port: ${{ secrets.PORT }}
-          source: "docs"
+          source: "wanaku-docs/docs"
           target: docs
