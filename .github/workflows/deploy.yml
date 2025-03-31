@@ -68,10 +68,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
             name: docs
-      - name: Extract Zip File
-        run: |
-          ls
-          unzip wanaku-docs/docs.zip -d docs
       - name: copy file via ssh password
         uses: appleboy/scp-action@v0.1.7
         with:
