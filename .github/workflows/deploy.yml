@@ -70,7 +70,8 @@ jobs:
             name: docs
       - name: Extract Zip File
         run: |
-          unzip docs.zip -d docs
+          ls
+          unzip wanaku-docs/docs.zip -d docs
       - name: copy file via ssh password
         uses: appleboy/scp-action@v0.1.7
         with:
