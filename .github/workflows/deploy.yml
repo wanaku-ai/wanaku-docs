@@ -74,6 +74,5 @@ jobs:
           host: ${{ secrets.WEBSITE_HOST }}
           username: ${{ secrets.WEBSITE_USERNAME }}
           password: ${{ secrets.WANAKU_PASSWORD }}
-          port: ${{ secrets.PORT }}
           source: "."
-          target: docs
+          target: wanaku.ai/docs
