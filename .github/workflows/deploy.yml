@@ -65,7 +65,7 @@ jobs:
       - name: copy file via ssh password
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.HOST }}
+          host: ${{ secrets.WEBSITE_HOST }}
           username: ${{ secrets.WEBSITE_USERNAME }}
           password: ${{ secrets.WANAKU_PASSWORD }}
           port: ${{ secrets.PORT }}
