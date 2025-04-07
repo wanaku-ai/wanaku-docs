@@ -30,5 +30,9 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/wanaku-ai/' }
     ],
+    docFooter: {
+      prev: false,
+      next: false,
+    },
   }
 })
