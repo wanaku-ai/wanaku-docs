@@ -12,7 +12,7 @@ $(VERSIONS):
 
 main:
 	@if [ ! -e version/wanaku-main ]; then \
-  		git clone --branch wanaku-main https://github.com/wanaku-ai/wanaku version/wanaku-main ; \
+  		git clone --branch main https://github.com/wanaku-ai/wanaku version/wanaku-main ; \
   	fi
 
 fetch: $(VERSIONS) main
