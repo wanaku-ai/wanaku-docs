@@ -6,10 +6,14 @@ VERSIONS=0.0.1 0.0.2 0.0.3 main
 .PHONY: docs
 
 $(VERSIONS):
-	[[ -e version/wanaku-$(@) ]] || git clone --branch wanaku-$(@) https://github.com/wanaku-ai/wanaku version/wanaku-$(@)
+	@if [ ! -e version/wanaku-$(@) ]; then \
+  		git clone --branch wanaku-$(@) https://github.com/wanaku-ai/wanaku version/wanaku-$(@) ; \
+  	fi
 
 main:
-	[[ -e version/wanaku-main ]] || git clone --branch main https://github.com/wanaku-ai/wanaku version/wanaku-main
+	@if [ ! -e version/wanaku-main ]; then \
+  		git clone --branch wanaku-main https://github.com/wanaku-ai/wanaku version/wanaku-main ; \
+  	fi
 
 fetch: $(VERSIONS) main
 
