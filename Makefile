@@ -21,4 +21,4 @@ clean:
 	rm -rf docs
 
 serve:
-	npx vitepress dev docs
+	npm run docs:dev
