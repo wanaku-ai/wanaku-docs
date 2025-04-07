@@ -12,7 +12,7 @@ hero:
       link: /version/wanaku-0.0.3/docs/usage
     - theme: alt
       text: Wanaku Next (Pre-release)
-      link: /version/wanaku-main/docs/usage
+      link: /version/wanaku-main/
 
 features:
   - title: Demos
