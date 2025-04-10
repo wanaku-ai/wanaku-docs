@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: Wanaku 0.0.4
-      link: /version/wanaku-0.0.4/docs/usage
+      link: /version/wanaku-0.0.4/
     - theme: alt
       text: Wanaku Next (Pre-release)
       link: /version/wanaku-main/
