@@ -10,8 +10,8 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Demos', link: 'https://github.com/wanaku-ai/wanaku-demos/' }
+      { text: 'Home', link: 'http://www.wanaku.ai' },
+      { text: 'Documentation', link: '/' }
     ],
 
     sidebar: [

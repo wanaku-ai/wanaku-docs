@@ -16,8 +16,11 @@ hero:
 
 features:
   - title: Demos
-    details: Demos from the YouTube Channel 
-    link: https://github.com/wanaku-ai/wanaku-demos
+    details: Step-by-step guides to learn how to use Wanaku
+    link: /demos/
+  - title: ToolSets
+    details: ToolSets are group of tools that you can share with others
+    link: /toolsets/
   - title: YouTube Channel
     details: News and videos about Wanaku
     link: https://www.youtube.com/@WanakuAI
