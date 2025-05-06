@@ -19,7 +19,7 @@ export default defineConfig({
         text: 'Wanaku Book',
         items: [
           { text: 'Architecture', link: `./architecture` },
-          { text: 'Building', link: `./Building` },
+          { text: 'Building', link: `./building` },
           { text: 'Contributing', link: `./contributing` },
           { text: 'Usage', link: `./usage` },
           { text: 'Wanaku Internals', link: `./wanaku-router-internals` }
