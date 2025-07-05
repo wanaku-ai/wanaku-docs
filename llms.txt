@@ -1,0 +1,17 @@
+# wanaku.ai
+
+> The Wanaku MCP Router extends AI workflows, delivers unmatched speed and reliability. Meet Wanaku, the first open-source MCP Router that acts like a friendly, efficient receptionist for your digital office.
+
+Important notes:
+- The Wanaku MCP Router is a router for AI-enabled applications powered by the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/).
+- Wanaku is is made on top of [Quarkus](https://quarkus.io) and [Apache Camel](https://camel.apache.org)
+
+The project name comes from the origins of the word [Guanaco](https://en.wikipedia.org/wiki/Guanaco), a camelid native to
+South America.
+
+## Core Content
+- [Documentation](https://wanaku.ai/docs/): The project documentation
+- [Project Organization](https://github.com/wanaku-ai/): The project documentation
+- [Project Main Repository](https://github.com/wanaku-ai/wanaku): The project documentation
+- [Project Releases](https://github.com/wanaku-ai/wanaku/releases): Wanaku releases for download
+- [Project Examples](https://github.com/wanaku-ai/wanaku-examples): Wanaku releases for download
