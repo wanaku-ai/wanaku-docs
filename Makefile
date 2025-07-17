@@ -1,7 +1,7 @@
 setup:
 	npm add -D vitepress
 
-WANAKU_ROUTER_VERSIONS=0.0.4 0.0.5 0.0.6
+WANAKU_ROUTER_VERSIONS=0.0.5 0.0.6 0.0.7
 DEMOS_DIR=demos
 VERSIONS_DIR=version
 TOOLSETS_DIR=toolsets
