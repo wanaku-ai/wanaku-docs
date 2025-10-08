@@ -17,9 +17,9 @@ hero:
 features:
   - title: Camel Integration Capability for Wanaku
     details: Extend Wanaku capabilities by leveraging 300+ Apache Camel Components
-    link: /camel-integration-capability/camel-integration-capability-main/
+    link: /camel-integration-capability/
   - title: Wanaku Capabilities SDK
-    details: Extend Wanaku capabilities with custom connectors in plain Java
+    details: Create custom Wanaku capabilities in plain Java
     link: /camel-integration-capability/camel-integration-capability-main/
   - title: Demos
     details: Step-by-step guides to learn how to use Wanaku
