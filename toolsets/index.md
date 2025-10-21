@@ -7,8 +7,8 @@ hero:
   tagline: ToolSets are group of tools that you can share with others
 
 features:
-  - title: Wanaku ToolSets 0.0.7
-    link: /toolsets/wanaku-toolsets-0.0.7/README
+  - title: Wanaku ToolSets 0.0.8
+    link: /toolsets/wanaku-toolsets-0.0.8/README
   - title: Wanaku ToolSets Next (Pre-release)
     link: /toolsets/wanaku-toolsets-main/README
 ---

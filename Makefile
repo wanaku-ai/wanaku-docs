@@ -1,16 +1,16 @@
 setup:
 	npm add -D vitepress
 
-WANAKU_ROUTER_VERSIONS=0.0.6 0.0.7
+WANAKU_ROUTER_VERSIONS=0.0.7 0.0.8
 DEMOS_DIR=demos
 VERSIONS_DIR=version
 TOOLSETS_DIR=toolsets
 
-WCJSDK_VERSIONS=main
+WCJSDK_VERSIONS=0.0.8
 WCJSDK_DIR=java-sdk
 
-CAMEL_INTEGRATION_CAPABILITY_VERSIONS=main
-CAMEL_INTEGRATION_CAPABILITY=camel-integration-capability
+CAMEL_INTEGRATION_CAPABILITY_VERSIONS=0.0.8 main
+CAMEL_INTEGRATION_CAPABILITY_DIR=camel-integration-capability
 
 .PHONY: docs demos
 
@@ -40,21 +40,28 @@ toolsets-main:
 		git clone --branch main https://github.com/wanaku-ai/wanaku-toolsets $(TOOLSETS_DIR)/wanaku-toolsets-main ; \
 	fi
 
-$(WCJSDK_VERSIONS):
-	@if [ ! -e $(WCJSDK_DIR)/wanaku-capabilities-java-sdk ]; then \
-		git clone --branch main https://github.com/wanaku-ai/wanaku-capabilities-java-sdk $(WCJSDK_DIR)/wanaku-capabilities-java-sdk ; \
+wanaku-capabilities-java-sdk-$(WCJSDK_VERSIONS):
+	@if [ ! -e $(WCJSDK_DIR)/$(@) ]; then \
+		git clone --branch $(@) https://github.com/wanaku-ai/wanaku-capabilities-java-sdk $(WCJSDK_DIR)/$(@) ; \
 	fi
 
-wanaku-capabilities-java-sdk: $(WCJSDK_VERSIONS)
-
-$(CAMEL_INTEGRATION_CAPABILITY_VERSIONS):
-	@if [ ! -e $(CAMEL_INTEGRATION_CAPABILITY)/camel-integration-capability-$(@) ]; then \
-		git clone --branch $(@) https://github.com/wanaku-ai/camel-integration-capability $(CAMEL_INTEGRATION_CAPABILITY)/camel-integration-capability-$(@) ; \
+wanaku-capabilities-java-sdk: wanaku-capabilities-java-sdk-$(WCJSDK_VERSIONS)
+	@if [ ! -e $(WCJSDK_DIR)/wanaku-capabilities-java-sdk-main ]; then \
+		git clone --branch main https://github.com/wanaku-ai/wanaku-capabilities-java-sdk $(WCJSDK_DIR)/wanaku-capabilities-java-sdk-main ; \
 	fi
 
-camel-integration-capability: $(CAMEL_INTEGRATION_CAPABILITY_VERSIONS)
 
-main: router-main demos-main toolsets-main wanaku-capabilities-java-sdk camel-integration-capability
+camel-integration-capability-$(CAMEL_INTEGRATION_CAPABILITY_VERSIONS):
+	@if [ ! -e $(CAMEL_INTEGRATION_CAPABILITY_DIR)/$(@) ]; then \
+		git clone --branch $(@) https://github.com/wanaku-ai/camel-integration-capability $(CAMEL_INTEGRATION_CAPABILITY_DIR)/$(@) ; \
+	fi
+
+camel-integration-capability: camel-integration-capability-$(CAMEL_INTEGRATION_CAPABILITY_VERSIONS)
+	@if [ ! -e $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-integration-capability-main ]; then \
+		git clone --branch main https://github.com/wanaku-ai/camel-integration-capability $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-integration-capability-main ; \
+	fi
+
+main: router-main demos-main toolsets-main camel-integration-capability wanaku-capabilities-java-sdk
 
 fetch: $(WANAKU_ROUTER_VERSIONS) main
 
@@ -66,7 +73,7 @@ clean:
 	@rm -rf $(DEMOS_DIR)/wanaku-*
 	@rm -rf $(TOOLSETS_DIR)/wanaku-*
 	@rm -rf $(WCJSDK_DIR)/wanaku-*
-	@rm -rf $(CAMEL_INTEGRATION_CAPABILITY)/camel-*
+	@rm -rf $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-*
 	@rm -rf docs
 
 serve:

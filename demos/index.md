@@ -7,8 +7,8 @@ hero:
   tagline: Learn step-by-step how to use Wanaku.
   actions:
     - theme: brand
-      text: Wanaku 0.0.7
-      link: /demos/wanaku-demos-0.0.7/
+      text: Wanaku 0.0.8
+      link: /demos/wanaku-demos-0.0.8/
     - theme: alt
       text: Wanaku Next (Pre-release)
       link: /demos/wanaku-demos-main/
