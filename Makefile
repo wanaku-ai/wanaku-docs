@@ -1,5 +1,6 @@
 setup:
 	npm add -D vitepress
+	npm i vitepress-plugin-mermaid mermaid -D
 
 WANAKU_ROUTER_VERSIONS=0.0.7 0.0.8
 DEMOS_DIR=demos
