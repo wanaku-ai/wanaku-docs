@@ -8,7 +8,7 @@ hero:
   tagline: Wanaku MCP Router stands between autonomous AI agents and your enterprise systems
   actions:
     - theme: brand
-      text: Wanaku 0.0.8
+      text: Wanaku (current version)
       link: /version/wanaku-0.0.8/
     - theme: alt
       text: Wanaku Next (Pre-release)
