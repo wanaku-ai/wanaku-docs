@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Camel Integration Capability (current version)
-      link: /camel-integration-capability/camel-integration-capability-0.0.8/
+      link: /camel-integration-capability/camel-integration-capability-0.0.9/
 
 features:
   - title: Camel Integration Capability (pre-release)

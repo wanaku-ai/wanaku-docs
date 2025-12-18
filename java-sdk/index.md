@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Wanaku Java Capability SDK (current version)
-      link: /java-sdk/wanaku-capabilities-java-sdk-0.0.8/
+      link: /java-sdk/wanaku-capabilities-java-sdk-0.0.9/
 
 features:
   - title: Wanaku Java Capability SDK (pre-release)

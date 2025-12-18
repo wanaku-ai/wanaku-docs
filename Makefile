@@ -2,15 +2,15 @@ setup:
 	npm add -D vitepress
 	npm i vitepress-plugin-mermaid mermaid -D
 
-WANAKU_ROUTER_VERSIONS=0.0.7 0.0.8
+WANAKU_ROUTER_VERSIONS=0.0.8 0.0.9
 DEMOS_DIR=demos
 VERSIONS_DIR=version
 TOOLSETS_DIR=toolsets
 
-WCJSDK_VERSIONS=0.0.8
+WCJSDK_VERSIONS=0.0.9
 WCJSDK_DIR=java-sdk
 
-CAMEL_INTEGRATION_CAPABILITY_VERSIONS=0.0.8 main
+CAMEL_INTEGRATION_CAPABILITY_VERSIONS=0.0.9 main
 CAMEL_INTEGRATION_CAPABILITY_DIR=camel-integration-capability
 
 .PHONY: docs demos
