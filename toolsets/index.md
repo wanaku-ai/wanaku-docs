@@ -8,7 +8,7 @@ hero:
 
 features:
   - title: Wanaku ToolSets (current version)
-    link: /toolsets/wanaku-toolsets-0.0.9/README
+    link: /toolsets/wanaku-toolsets-0.1.0/README
   - title: Wanaku ToolSets Next (pre-release)
     link: /toolsets/wanaku-toolsets-main/README
 ---
