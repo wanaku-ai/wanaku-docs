@@ -14,7 +14,7 @@ hero:
 features:
   - title: Wanaku (current version)
     details: Reference Wanaku documentation (current version)
-    link: /version/wanaku-0.1.0/
+    link: /version/wanaku-0.1.1/
   - title: Wanaku Next (pre-release)
     details: Reference Wanaku documentation (pre-release)
     link: /version/wanaku-main/
