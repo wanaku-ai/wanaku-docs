@@ -8,22 +8,22 @@ hero:
   tagline: Wanaku MCP Router stands between autonomous AI agents and your enterprise systems
   actions:
     - theme: brand
-      text: Wanaku (current version)
-      link: /version/wanaku-0.1.0/
-    - theme: alt
-      text: Wanaku Next (Pre-release)
-      link: /version/wanaku-main/
+      text: Learn Wanaku
+      link: /demos/
 
 features:
+  - title: Wanaku (current version)
+    details: Reference Wanaku documentation (current version)
+    link: /version/wanaku-0.1.0/
+  - title: Wanaku Next (pre-release)
+    details: Reference Wanaku documentation (pre-release)
+    link: /version/wanaku-main/
   - title: Camel Integration Capability for Wanaku
     details: Extend Wanaku capabilities by leveraging 300+ Apache Camel Components
     link: /camel-integration-capability/
   - title: Wanaku Capabilities SDK
     details: Create custom Wanaku capabilities in plain Java
     link: /java-sdk/
-  - title: Demos
-    details: Step-by-step guides to learn how to use Wanaku
-    link: /demos/
   - title: ToolSets
     details: ToolSets are group of tools that you can share with others
     link: /toolsets/

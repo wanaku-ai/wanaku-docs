@@ -2,8 +2,9 @@ setup:
 	npm add -D vitepress
 	npm i vitepress-plugin-mermaid mermaid -D
 
-WANAKU_ROUTER_VERSIONS=0.0.9 0.1.0
+WANAKU_ROUTER_VERSIONS=0.1.0
 DEMOS_DIR=demos
+DEMOS_VERSIONS=0.1.0
 VERSIONS_DIR=version
 TOOLSETS_DIR=toolsets
 
@@ -19,9 +20,6 @@ $(WANAKU_ROUTER_VERSIONS):
 	@if [ ! -e $(VERSIONS_DIR)/wanaku-$(@) ]; then \
   		git clone --branch wanaku-$(@) https://github.com/wanaku-ai/wanaku $(VERSIONS_DIR)/wanaku-$(@) ; \
   	fi
-	@if [ ! -e $(DEMOS_DIR)/wanaku-demos-$(@) ]; then \
-  		git clone --branch wanaku-$(@) https://github.com/wanaku-ai/wanaku-demos $(DEMOS_DIR)/wanaku-demos-$(@) || true ; \
-  	fi
 	@if [ ! -e $(TOOLSETS_DIR)/wanaku-toolsets-$(@) ]; then \
   		git clone --branch wanaku-$(@) https://github.com/wanaku-ai/wanaku-toolsets $(TOOLSETS_DIR)/wanaku-toolsets-$(@) || true ; \
   	fi
@@ -31,10 +29,17 @@ router-main:
   		git clone --branch main https://github.com/wanaku-ai/wanaku $(VERSIONS_DIR)/wanaku-main ; \
   	fi ;
 
+wanaku-demos-$(DEMOS_VERSIONS):
+	@if [ ! -e $(DEMOS_DIR)/$(@) ]; then \
+		git clone --branch $(@) https://github.com/wanaku-ai/wanaku-demos $(DEMOS_DIR)/$(@) ; \
+	fi
+
 demos-main:
 	@if [ ! -e $(DEMOS_DIR)/wanaku-demos-main ]; then \
 		git clone --branch main https://github.com/wanaku-ai/wanaku-demos $(DEMOS_DIR)/wanaku-demos-main ; \
 	fi
+
+demos: wanaku-demos-$(DEMOS_VERSIONS) demos-main
 
 toolsets-main:
 	@if [ ! -e $(TOOLSETS_DIR)/wanaku-toolsets-main ]; then \
@@ -64,7 +69,7 @@ camel-integration-capability: camel-integration-capability-$(CAMEL_INTEGRATION_C
 
 main: router-main demos-main toolsets-main camel-integration-capability wanaku-capabilities-java-sdk
 
-fetch: $(WANAKU_ROUTER_VERSIONS) main
+fetch: $(WANAKU_ROUTER_VERSIONS) demos main
 
 docs: fetch
 	npm run docs:build

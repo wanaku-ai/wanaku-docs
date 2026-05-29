@@ -4,18 +4,18 @@ layout: home
 
 hero:
   name: "Wanaku MCP Router Demos"
-  tagline: Learn step-by-step how to use Wanaku.
+  tagline: Learn Wanaku by following step-by-step guides.
   actions:
     - theme: brand
-      text: Wanaku (current version)
+      text: Wanaku Guided Demos (current version)
       link: /demos/wanaku-demos-0.1.0/
-    - theme: alt
-      text: Wanaku Next (pre-release)
-      link: /demos/wanaku-demos-main/
 
 features:
+  - title: Wanaku Guided Demos (pre-release)
+    details: Learn Wanaku by following step-by-step guides for the pre-release version.
+    link: /demos/wanaku-demos-main/
   - title: Source code
-    details: Source code for Wanaku Demos 
+    details: Source code for Wanaku Demos
     link: https://github.com/wanaku-ai/wanaku-demos
   - title: YouTube Channel
     details: Demos, news and videos about Wanaku
