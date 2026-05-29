@@ -24,9 +24,6 @@ features:
   - title: Wanaku Capabilities SDK
     details: Create custom Wanaku capabilities in plain Java
     link: /java-sdk/
-  - title: ToolSets
-    details: ToolSets are group of tools that you can share with others
-    link: /toolsets/
   - title: YouTube Channel
     details: News and videos about Wanaku
     link: https://www.youtube.com/@WanakuAI
