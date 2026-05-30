@@ -2,31 +2,27 @@ setup:
 	npm add -D vitepress
 	npm i vitepress-plugin-mermaid mermaid -D
 
-WANAKU_ROUTER_VERSIONS=0.1.1
+WANAKU_CURRENT_VERSION=0.1.1
 DEMOS_DIR=demos
-DEMOS_VERSIONS=0.1.1
 VERSIONS_DIR=version
-
-WCJSDK_VERSIONS=0.1.1
 WCJSDK_DIR=java-sdk
-
-CAMEL_INTEGRATION_CAPABILITY_VERSIONS=0.1.1 main
 CAMEL_INTEGRATION_CAPABILITY_DIR=camel-integration-capability
 
 .PHONY: docs demos
 
-$(WANAKU_ROUTER_VERSIONS):
-	@if [ ! -e $(VERSIONS_DIR)/wanaku-$(@) ]; then \
-  		git clone --branch wanaku-$(@) https://github.com/wanaku-ai/wanaku $(VERSIONS_DIR)/wanaku-$(@) ; \
-  	fi
+router-current:
+	@if [ ! -e $(VERSIONS_DIR)/wanaku-current ]; then \
+		git clone --branch wanaku-$(WANAKU_CURRENT_VERSION) https://github.com/wanaku-ai/wanaku $(VERSIONS_DIR)/wanaku-current ; \
+	fi
+
 router-main:
 	@if [ ! -e $(VERSIONS_DIR)/wanaku-main ]; then \
-  		git clone --branch main https://github.com/wanaku-ai/wanaku $(VERSIONS_DIR)/wanaku-main ; \
-  	fi ;
+		git clone --branch main https://github.com/wanaku-ai/wanaku $(VERSIONS_DIR)/wanaku-main ; \
+	fi
 
-wanaku-demos-$(DEMOS_VERSIONS):
-	@if [ ! -e $(DEMOS_DIR)/$(@) ]; then \
-		git clone --branch $(@) https://github.com/wanaku-ai/wanaku-demos $(DEMOS_DIR)/$(@) ; \
+demos-current:
+	@if [ ! -e $(DEMOS_DIR)/wanaku-demos-current ]; then \
+		git clone --branch wanaku-demos-$(WANAKU_CURRENT_VERSION) https://github.com/wanaku-ai/wanaku-demos $(DEMOS_DIR)/wanaku-demos-current ; \
 	fi
 
 demos-main:
@@ -34,41 +30,42 @@ demos-main:
 		git clone --branch main https://github.com/wanaku-ai/wanaku-demos $(DEMOS_DIR)/wanaku-demos-main ; \
 	fi
 
-demos: wanaku-demos-$(DEMOS_VERSIONS) demos-main
+demos: demos-current demos-main
 
-wanaku-capabilities-java-sdk-$(WCJSDK_VERSIONS):
-	@if [ ! -e $(WCJSDK_DIR)/$(@) ]; then \
-		git clone --branch $(@) https://github.com/wanaku-ai/wanaku-capabilities-java-sdk $(WCJSDK_DIR)/$(@) ; \
+wcjsdk-current:
+	@if [ ! -e $(WCJSDK_DIR)/wanaku-capabilities-java-sdk-current ]; then \
+		git clone --branch wanaku-capabilities-java-sdk-$(WANAKU_CURRENT_VERSION) https://github.com/wanaku-ai/wanaku-capabilities-java-sdk $(WCJSDK_DIR)/wanaku-capabilities-java-sdk-current ; \
 	fi
 
-wanaku-capabilities-java-sdk: wanaku-capabilities-java-sdk-$(WCJSDK_VERSIONS)
+wcjsdk-main:
 	@if [ ! -e $(WCJSDK_DIR)/wanaku-capabilities-java-sdk-main ]; then \
 		git clone --branch main https://github.com/wanaku-ai/wanaku-capabilities-java-sdk $(WCJSDK_DIR)/wanaku-capabilities-java-sdk-main ; \
 	fi
 
+wanaku-capabilities-java-sdk: wcjsdk-current wcjsdk-main
 
-camel-integration-capability-$(CAMEL_INTEGRATION_CAPABILITY_VERSIONS):
-	@if [ ! -e $(CAMEL_INTEGRATION_CAPABILITY_DIR)/$(@) ]; then \
-		git clone --branch $(@) https://github.com/wanaku-ai/camel-integration-capability $(CAMEL_INTEGRATION_CAPABILITY_DIR)/$(@) ; \
+cic-current:
+	@if [ ! -e $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-integration-capability-current ]; then \
+		git clone --branch camel-integration-capability-$(WANAKU_CURRENT_VERSION) https://github.com/wanaku-ai/camel-integration-capability $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-integration-capability-current ; \
 	fi
 
-camel-integration-capability: camel-integration-capability-$(CAMEL_INTEGRATION_CAPABILITY_VERSIONS)
+cic-main:
 	@if [ ! -e $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-integration-capability-main ]; then \
 		git clone --branch main https://github.com/wanaku-ai/camel-integration-capability $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-integration-capability-main ; \
 	fi
 
-main: router-main demos-main camel-integration-capability wanaku-capabilities-java-sdk
+camel-integration-capability: cic-current cic-main
 
-fetch: $(WANAKU_ROUTER_VERSIONS) demos main
+fetch: router-current router-main demos camel-integration-capability wanaku-capabilities-java-sdk
 
 docs: fetch
 	npm run docs:build
 
 clean:
-	@rm -rf $(VERSIONS_DIR)/wanaku-*
-	@rm -rf $(DEMOS_DIR)/wanaku-*
-	@rm -rf $(WCJSDK_DIR)/wanaku-*
-	@rm -rf $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-*
+	@rm -rf $(VERSIONS_DIR)/wanaku-current $(VERSIONS_DIR)/wanaku-main
+	@rm -rf $(DEMOS_DIR)/wanaku-demos-current $(DEMOS_DIR)/wanaku-demos-main
+	@rm -rf $(WCJSDK_DIR)/wanaku-capabilities-java-sdk-current $(WCJSDK_DIR)/wanaku-capabilities-java-sdk-main
+	@rm -rf $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-integration-capability-current $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-integration-capability-main
 	@rm -rf docs
 
 serve:

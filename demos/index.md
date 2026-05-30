@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Wanaku Guided Demos (current version)
-      link: /demos/wanaku-demos-0.1.1/
+      link: /demos/wanaku-demos-current/
 
 features:
   - title: Wanaku Guided Demos (pre-release)
