@@ -2,7 +2,11 @@ setup:
 	npm add -D vitepress
 	npm i vitepress-plugin-mermaid mermaid -D
 
-WANAKU_CURRENT_VERSION=0.1.1
+WANAKU_ROUTER_VERSION=0.1.1
+WANAKU_DEMOS_VERSION=0.1.1
+WCJSDK_VERSION=0.1.1
+CAMEL_INTEGRATION_CAPABILITY_VERSION=0.1.1
+
 DEMOS_DIR=demos
 VERSIONS_DIR=version
 WCJSDK_DIR=java-sdk
@@ -12,7 +16,7 @@ CAMEL_INTEGRATION_CAPABILITY_DIR=camel-integration-capability
 
 router-current:
 	@if [ ! -e $(VERSIONS_DIR)/wanaku-current ]; then \
-		git clone --branch wanaku-$(WANAKU_CURRENT_VERSION) https://github.com/wanaku-ai/wanaku $(VERSIONS_DIR)/wanaku-current ; \
+		git clone --branch wanaku-$(WANAKU_ROUTER_VERSION) https://github.com/wanaku-ai/wanaku $(VERSIONS_DIR)/wanaku-current ; \
 	fi
 
 router-main:
@@ -22,7 +26,7 @@ router-main:
 
 demos-current:
 	@if [ ! -e $(DEMOS_DIR)/wanaku-demos-current ]; then \
-		git clone --branch wanaku-demos-$(WANAKU_CURRENT_VERSION) https://github.com/wanaku-ai/wanaku-demos $(DEMOS_DIR)/wanaku-demos-current ; \
+		git clone --branch wanaku-demos-$(WANAKU_DEMOS_VERSION) https://github.com/wanaku-ai/wanaku-demos $(DEMOS_DIR)/wanaku-demos-current ; \
 	fi
 
 demos-main:
@@ -34,7 +38,7 @@ demos: demos-current demos-main
 
 wcjsdk-current:
 	@if [ ! -e $(WCJSDK_DIR)/wanaku-capabilities-java-sdk-current ]; then \
-		git clone --branch wanaku-capabilities-java-sdk-$(WANAKU_CURRENT_VERSION) https://github.com/wanaku-ai/wanaku-capabilities-java-sdk $(WCJSDK_DIR)/wanaku-capabilities-java-sdk-current ; \
+		git clone --branch wanaku-capabilities-java-sdk-$(WCJSDK_VERSION) https://github.com/wanaku-ai/wanaku-capabilities-java-sdk $(WCJSDK_DIR)/wanaku-capabilities-java-sdk-current ; \
 	fi
 
 wcjsdk-main:
@@ -46,7 +50,7 @@ wanaku-capabilities-java-sdk: wcjsdk-current wcjsdk-main
 
 cic-current:
 	@if [ ! -e $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-integration-capability-current ]; then \
-		git clone --branch camel-integration-capability-$(WANAKU_CURRENT_VERSION) https://github.com/wanaku-ai/camel-integration-capability $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-integration-capability-current ; \
+		git clone --branch camel-integration-capability-$(CAMEL_INTEGRATION_CAPABILITY_VERSION) https://github.com/wanaku-ai/camel-integration-capability $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-integration-capability-current ; \
 	fi
 
 cic-main:
