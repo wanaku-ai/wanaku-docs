@@ -1,34 +1,38 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
-  name: "Wanaku MCP Router"
-  text: "Documentation"
-  tagline: Wanaku MCP Router stands between autonomous AI agents and your enterprise systems
+  name: "Wanaku"
+  text: "The First Open-Source MCP Router"
+  tagline: Meet Wanaku, the first open-source MCP Router that acts like a friendly, efficient receptionist for your digital office.
+  image:
+    src: /images/wanaku.png
+    alt: Wanaku
   actions:
     - theme: brand
-      text: Learn Wanaku
-      link: /demos/
+      text: Get Started
+      link: /docs/
+    - theme: alt
+      text: View on GitHub
+      link: https://github.com/wanaku-ai/wanaku
 
 features:
-  - title: Wanaku (current version)
-    details: Reference Wanaku documentation (current version)
-    link: /version/wanaku-current/
-  - title: Wanaku Next (pre-release)
-    details: Reference Wanaku documentation (pre-release)
-    link: /version/wanaku-main/
-  - title: Camel Integration Capability for Wanaku
-    details: Extend Wanaku capabilities by leveraging 300+ Apache Camel Components
-    link: /camel-integration-capability/
-  - title: Wanaku Capabilities SDK
-    details: Create custom Wanaku capabilities in plain Java
-    link: /java-sdk/
-  - title: YouTube Channel
-    details: News and videos about Wanaku
-    link: https://www.youtube.com/@WanakuAI
-  - title: Community
-    details: Discuss about Wanaku and MCP with the community
-    link: https://github.com/orgs/wanaku-ai/discussions
+  - title: Eliminate Repetitive Configurations
+    details: Automates agentic integrations spanning HTTP, Kafka, FTP, and additional protocols.
+    icon: "⚙️"
+  - title: Strengthen Security & Compliance
+    details: Provides straightforward enforcement of access control, auditing, and error handling.
+    icon: "🔒"
+  - title: Scale Without Stress
+    details: Uses Apache Camel to handle hundreds or thousands of integration endpoints.
+    icon: "🚀"
+  - title: Open Source
+    details: Developed by the community, for the community.
+    icon: "🌐"
 ---
 
+<script setup>
+import HomeContent from './.vitepress/theme/components/HomeContent.vue'
+</script>
+
+<HomeContent />

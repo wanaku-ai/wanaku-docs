@@ -7,10 +7,10 @@ WANAKU_DEMOS_VERSION=0.1.3
 WCJSDK_VERSION=0.1.1
 CAMEL_INTEGRATION_CAPABILITY_VERSION=0.1.1
 
-DEMOS_DIR=demos
-VERSIONS_DIR=version
-WCJSDK_DIR=java-sdk
-CAMEL_INTEGRATION_CAPABILITY_DIR=camel-integration-capability
+DEMOS_DIR=docs/demos
+VERSIONS_DIR=docs/version
+WCJSDK_DIR=docs/java-sdk
+CAMEL_INTEGRATION_CAPABILITY_DIR=docs/camel-integration-capability
 
 .PHONY: docs demos
 
@@ -73,7 +73,7 @@ clean:
 	@rm -rf $(DEMOS_DIR)/wanaku-demos-current $(DEMOS_DIR)/wanaku-demos-main
 	@rm -rf $(WCJSDK_DIR)/wanaku-capabilities-java-sdk-current $(WCJSDK_DIR)/wanaku-capabilities-java-sdk-main
 	@rm -rf $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-integration-capability-current $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-integration-capability-main
-	@rm -rf docs
+	@rm -rf dist
 	@rm -f get-wanaku.sh
 
 serve:
