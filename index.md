@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /docs/
+      link: /docs/demos/wanaku-demos-current/
     - theme: alt
       text: View on GitHub
       link: https://github.com/wanaku-ai/wanaku
