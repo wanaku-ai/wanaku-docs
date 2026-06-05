@@ -60,7 +60,10 @@ cic-main:
 
 camel-integration-capability: cic-current cic-main
 
-fetch: router-current router-main demos camel-integration-capability wanaku-capabilities-java-sdk
+get-wanaku:
+	curl -sSL -o get-wanaku.sh https://raw.githubusercontent.com/wanaku-ai/wanaku/refs/heads/main/get-wanaku.sh
+
+fetch: router-current router-main demos camel-integration-capability wanaku-capabilities-java-sdk get-wanaku
 
 docs: fetch
 	npm run docs:build
@@ -71,6 +74,7 @@ clean:
 	@rm -rf $(WCJSDK_DIR)/wanaku-capabilities-java-sdk-current $(WCJSDK_DIR)/wanaku-capabilities-java-sdk-main
 	@rm -rf $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-integration-capability-current $(CAMEL_INTEGRATION_CAPABILITY_DIR)/camel-integration-capability-main
 	@rm -rf docs
+	@rm -f get-wanaku.sh
 
 serve:
 	npm run docs:dev
