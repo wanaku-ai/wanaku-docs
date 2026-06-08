@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { withMermaid } from "vitepress-plugin-mermaid";
+import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 import { genFeed } from './genFeed'
 
 // https://vitepress.dev/reference/site-config + mermaid
@@ -41,5 +42,10 @@ export default withMermaid({
     // optionally set additional config for plugin itself with MermaidPluginConfig
     mermaidPlugin: {
         class: "mermaid my-class", // set additional css classes for parent container
+    },
+    markdown: {
+        config(md) {
+            md.use(tabsMarkdownPlugin)
+        },
     },
 });

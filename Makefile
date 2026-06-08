@@ -1,6 +1,7 @@
 setup:
 	npm add -D vitepress
 	npm i vitepress-plugin-mermaid mermaid -D
+	npm i vitepress-plugin-tabs -D
 
 WANAKU_ROUTER_VERSION=0.1.3
 WANAKU_DEMOS_VERSION=0.1.3
