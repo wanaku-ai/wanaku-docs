@@ -1,0 +1,3 @@
+# Protect server-side files that should not be deleted by --delete
+# protect .htaccess
+# protect .well-known/

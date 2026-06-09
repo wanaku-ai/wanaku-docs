@@ -70,31 +70,32 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy
     steps:
-      - name: download site artifact
+      - uses: actions/checkout@v4
+      - name: Download site artifact
         uses: actions/download-artifact@v4
         with:
-            name: site
-            path: site
-      - name: download get-wanaku.sh artifact
+          name: site
+          path: site
+      - name: Download get-wanaku.sh artifact
         uses: actions/download-artifact@v4
         with:
-            name: get-wanaku
-            path: scripts
-      - name: deploy site via scp
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.WEBSITE_HOST }}
-          username: ${{ secrets.WEBSITE_USERNAME }}
-          key: ${{ secrets.WANAKU_KEY }}
-          source: "site/*"
-          target: wanaku.ai
-          strip_components: 1
-      - name: deploy get-wanaku.sh via scp
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.WEBSITE_HOST }}
-          username: ${{ secrets.WEBSITE_USERNAME }}
-          key: ${{ secrets.WANAKU_KEY }}
-          source: "scripts/get-wanaku.sh"
-          target: wanaku.ai
-          strip_components: 1
+          name: get-wanaku
+          path: site
+      - name: Configure SSH
+        env:
+          WEBSITE_HOST: ${{ secrets.WEBSITE_HOST }}
+          WANAKU_KEY: ${{ secrets.WANAKU_KEY }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$WANAKU_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "$WEBSITE_HOST" >> ~/.ssh/known_hosts
+      - name: Deploy site via rsync
+        env:
+          WEBSITE_HOST: ${{ secrets.WEBSITE_HOST }}
+          WEBSITE_USERNAME: ${{ secrets.WEBSITE_USERNAME }}
+        run: |
+          rsync -avz --delete \
+            --filter="merge .github/rsync-filter.rules" \
+            -e "ssh -i ~/.ssh/id_ed25519" \
+            site/ "${WEBSITE_USERNAME}@${WEBSITE_HOST}:${WEBSITE_HOST}/"
