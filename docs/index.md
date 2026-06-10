@@ -1,6 +1,7 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+description: "Documentation for the Wanaku MCP Router — guides, API reference, demos, and SDK docs."
 
 hero:
   name: "Wanaku MCP Router"

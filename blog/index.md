@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Blog
+description: "News, releases, and technical articles from the Wanaku project."
 ---
 
 <script setup>

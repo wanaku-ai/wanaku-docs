@@ -1,5 +1,6 @@
 ---
 layout: home
+description: "Learn about Wanaku — the open-source MCP Router connecting AI agents to enterprise systems securely."
 
 hero:
   name: "About Wanaku"
