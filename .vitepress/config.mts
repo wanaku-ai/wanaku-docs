@@ -1,12 +1,11 @@
 import { defineConfig } from 'vitepress'
-import { withMermaid } from "vitepress-plugin-mermaid";
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 import { genFeed } from './genFeed'
 
 const siteUrl = 'https://wanaku.ai'
 
-// https://vitepress.dev/reference/site-config + mermaid
-export default withMermaid({
+// https://vitepress.dev/reference/site-config
+export default defineConfig({
     title: "Wanaku",
     description: "The first open-source MCP Router for AI workflows",
     ignoreDeadLinks: true,
@@ -114,17 +113,22 @@ export default withMermaid({
         await genFeed(siteConfig)
     },
 
-    // optionally, you can pass MermaidConfig
-    mermaid: {
-        // refer https://mermaid.js.org/config/setup/modules/mermaidAPI.html#mermaidapi-configuration-defaults for options
-    },
-    // optionally set additional config for plugin itself with MermaidPluginConfig
-    mermaidPlugin: {
-        class: "mermaid my-class", // set additional css classes for parent container
-    },
     markdown: {
         config(md) {
             md.use(tabsMarkdownPlugin)
+
+            const defaultFence = md.renderer.rules.fence!.bind(md.renderer.rules)
+            md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+                const token = tokens[idx]
+                if (token.info.trim() === 'mermaid') {
+                    const encoded = token.content
+                        .replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                    return `<pre class="mermaid">${encoded}</pre>`
+                }
+                return defaultFence(tokens, idx, options, env, self)
+            }
         },
     },
 });
