@@ -1,6 +1,7 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+description: "Step-by-step guided demos to learn the Wanaku MCP Router from first tool to production deployment."
 
 hero:
   name: "Wanaku MCP Router Demos"

@@ -1,5 +1,6 @@
 ---
 layout: home
+description: "Join the Wanaku community — contribute, discuss, and watch demos of the open-source MCP Router."
 
 hero:
   name: "Community"
